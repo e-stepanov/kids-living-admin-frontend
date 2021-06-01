@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Admin, Resource } from "react-admin"
+import drfProvider, {
+  tokenAuthProvider,
+  fetchJsonWithAuthToken,
+} from "ra-data-django-rest-framework"
+
+import BibleBookCreate from "bible-books/components/BibleBookCreate"
+import BibleBookEdit from "bible-books/components/BibleBookEdit"
+import BibleBookList from "bible-books/components/BibleBookList"
 
 function App() {
+  const dataProvider = drfProvider("/api/v1", fetchJsonWithAuthToken)
+  const authProvider = tokenAuthProvider()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Admin dataProvider={dataProvider} authProvider={authProvider}>
+      <Resource
+        name="bible-books"
+        options={{ label: "Книги Библии" }}
+        list={BibleBookList}
+        edit={BibleBookEdit}
+        create={BibleBookCreate}
+      />
+    </Admin>
+  )
 }
 
-export default App;
+export default App
