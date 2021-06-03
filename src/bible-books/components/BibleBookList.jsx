@@ -1,11 +1,11 @@
-import { Datagrid, List, TextField } from "react-admin"
+import { Datagrid, List, NumberField, TextField } from "react-admin"
 
 export default function BibleBookList(props) {
   return (
     <List {...props}>
-      <Datagrid rowClick="edit">
-        <TextField source="number" />
-        <TextField source="title" />
+      <Datagrid rowClick="show">
+        <NumberField source="number" textAlign="left" label="Номер" />
+        <TextField source="title" label="Название" />
       </Datagrid>
     </List>
   )

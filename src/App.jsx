@@ -4,9 +4,8 @@ import drfProvider, {
   fetchJsonWithAuthToken,
 } from "ra-data-django-rest-framework"
 
-import BibleBookCreate from "bible-books/components/BibleBookCreate"
-import BibleBookEdit from "bible-books/components/BibleBookEdit"
-import BibleBookList from "bible-books/components/BibleBookList"
+import bibleBooks from "bible-books/components"
+import bibleChapters from "bible-chapters/components"
 
 function App() {
   const dataProvider = drfProvider("/api/v1", fetchJsonWithAuthToken)
@@ -16,9 +15,12 @@ function App() {
       <Resource
         name="bible-books"
         options={{ label: "Книги Библии" }}
-        list={BibleBookList}
-        edit={BibleBookEdit}
-        create={BibleBookCreate}
+        {...bibleBooks}
+      />
+      <Resource
+        name="bible-chapters"
+        options={{ label: "Главы Библии" }}
+        {...bibleChapters}
       />
     </Admin>
   )
