@@ -16,9 +16,9 @@ export default function BibleChapterEdit(props) {
           reference="bible-books"
           validate={required()}
         >
-          <SelectInput optionText="title" />
+          <SelectInput optionText="title" label="Книга" />
         </ReferenceInput>
-        <NumberInput source="number" label="Номер" />
+        <NumberInput source="number" label="Номер главы" />
       </SimpleForm>
     </Edit>
   )

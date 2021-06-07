@@ -3,10 +3,10 @@ import BibleChapterEdit from "./BibleChapterEdit"
 import BibleChapterList from "./BibleChapterList"
 import BibleChapterShow from "./BibleChapterShow"
 
-const bibleChapters = {
+const bibleChaptersCRUD = {
   list: BibleChapterList,
   show: BibleChapterShow,
   create: BibleChapterCreate,
   edit: BibleChapterEdit,
 }
-export default bibleChapters
+export default bibleChaptersCRUD

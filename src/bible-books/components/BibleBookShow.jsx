@@ -1,7 +1,7 @@
 import { Add } from "@material-ui/icons"
 import {
   Button,
-  EditButton,
+  ShowButton,
   Datagrid,
   NumberField,
   ReferenceManyField,
@@ -44,7 +44,7 @@ export default function BibleBookShow(props) {
               label="Номер"
               render={(record) => `Глава ${record.number}`}
             />
-            <EditButton label="" />
+            <ShowButton label="" />
           </Datagrid>
         </ReferenceManyField>
         <AddNewChapterButton />
