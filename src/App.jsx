@@ -7,6 +7,7 @@ import drfProvider, {
 import bibleBooksCRUD from "bible-books/components"
 import bibleChaptersCRUD from "bible-chapters/components"
 import bibleVerseCRUDD from "bible-verses/components"
+import planCRUD from "plans/components"
 
 function App() {
   const dataProvider = drfProvider("/api/v1", fetchJsonWithAuthToken)
@@ -27,6 +28,11 @@ function App() {
         name="bible-verses"
         options={{ label: "Стихи Библии" }}
         {...bibleVerseCRUDD}
+      />
+      <Resource
+        name="plans"
+        options={{ label: "Планы собраний" }}
+        {...planCRUD}
       />
     </Admin>
   )
