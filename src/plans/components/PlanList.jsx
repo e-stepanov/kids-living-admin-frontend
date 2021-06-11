@@ -4,7 +4,7 @@ export default function PlanList(props) {
   return (
     <List {...props}>
       <Datagrid rowClick="show">
-        <TextField source="title" />
+        <TextField source="title" label="Название" />
       </Datagrid>
     </List>
   )

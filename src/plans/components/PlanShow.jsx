@@ -4,8 +4,8 @@ export default function PlanShow(props) {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <TextField source="title" />
-        <TextField source="description" />
+        <TextField source="title" label="Название" />
+        <TextField source="description" label="Описание" />
       </SimpleShowLayout>
     </Show>
   )
