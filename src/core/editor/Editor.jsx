@@ -12,7 +12,7 @@ export default function Editor({ onChange, record }) {
   return (
     <EditorJS
       tools={EDITOR_JS_TOOLS}
-      data={JSON.parse(record.text)}
+      data={JSON.parse(record.text || "{}")}
       onChange={onChangeInternal}
     />
   )

@@ -7,13 +7,19 @@ import drfProvider, {
 import bibleBooksCRUD from "bible-books/components"
 import bibleChaptersCRUD from "bible-chapters/components"
 import bibleVerseCRUDD from "bible-verses/components"
+import Layout from "layout/Layout"
 import planCRUD from "plans/components"
 
 function App() {
   const dataProvider = drfProvider("/api/v1", fetchJsonWithAuthToken)
   const authProvider = tokenAuthProvider()
   return (
-    <Admin dataProvider={dataProvider} authProvider={authProvider}>
+    <Admin
+      title=""
+      dataProvider={dataProvider}
+      authProvider={authProvider}
+      layout={Layout}
+    >
       <Resource
         name="bible-books"
         options={{ label: "Книги Библии" }}
