@@ -11,11 +11,7 @@ import Editor from "core/editor/Editor"
 import { useState } from "react"
 
 export default function PlanEdit(props) {
-  const [textFieldValue, setTextFieldValue] = useState("")
-
-  const onChange = (value) => {
-    setTextFieldValue(value)
-  }
+  const [textFieldValue, setTextFieldValue] = useState({})
 
   const transform = (data) => {
     return {
@@ -49,7 +45,7 @@ export default function PlanEdit(props) {
           />
         </FormTab>
         <FormTab label="Текст">
-          <Editor onChange={onChange} />
+          <Editor onChange={setTextFieldValue} onReady={setTextFieldValue} />
         </FormTab>
       </TabbedForm>
     </Edit>

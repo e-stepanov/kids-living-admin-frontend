@@ -1,6 +1,7 @@
 import Delimiter from "@editorjs/delimiter"
 import Embed from "@editorjs/embed"
 import Header from "@editorjs/header"
+import Image from "@editorjs/image"
 import List from "@editorjs/list"
 import Marker from "@editorjs/marker"
 import Quote from "@editorjs/quote"
@@ -33,6 +34,15 @@ export const EDITOR_JS_TOOLS = {
   header: {
     class: Header,
     inlineToolbar: true,
+  },
+  image: {
+    class: Image,
+    config: {
+      endpoints: {
+        byFile: `${process.env.REACT_APP_API_URL}/plans/upload-image/`,
+        byUrl: `${process.env.REACT_APP_API_URL}/plans/upload-image-by-url/`,
+      },
+    },
   },
   list: {
     class: List,
