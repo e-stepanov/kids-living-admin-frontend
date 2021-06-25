@@ -10,6 +10,8 @@ import TextVariantTune from "@editorjs/text-variant-tune"
 import Underline from "@editorjs/underline"
 import Warning from "@editorjs/warning"
 
+import apiUrl from "core/apiUrl"
+
 export const EDITOR_JS_TOOLS = {
   textVariant: TextVariantTune,
   paragraph: {
@@ -39,8 +41,8 @@ export const EDITOR_JS_TOOLS = {
     class: Image,
     config: {
       endpoints: {
-        byFile: `${process.env.REACT_APP_API_URL}/plans/upload-image/`,
-        byUrl: `${process.env.REACT_APP_API_URL}/plans/upload-image-by-url/`,
+        byFile: `${apiUrl}/plans/upload-image/`,
+        byUrl: `${apiUrl}/plans/upload-image-by-url/`,
       },
     },
   },

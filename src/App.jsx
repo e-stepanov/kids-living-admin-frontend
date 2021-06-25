@@ -6,18 +6,16 @@ import drfProvider, {
 
 import bibleBooksCRUD from "bible-books/components"
 import bibleChaptersCRUD from "bible-chapters/components"
+import bibleFragmentsLCRUD from "bible-fragments"
 import bibleVerseCRUDD from "bible-verses/components"
+import apiUrl from "core/apiUrl"
 import Layout from "layout/Layout"
 import planCRUD from "plans/components"
-import bibleFragmentsLCRUD from "bible-fragments"
 
 function App() {
-  const apiHost =
-    process.env.NODE_ENV === "production" ? process.env.REACT_APP_API_URL : ""
-  console.log(`${apiHost}/api/v1`)
-  const dataProvider = drfProvider(`${apiHost}/api/v1`, fetchJsonWithAuthToken)
+  const dataProvider = drfProvider(apiUrl, fetchJsonWithAuthToken)
   const authProvider = tokenAuthProvider({
-    obtainAuthTokenUrl: `${apiHost}/api/v1/api-token-auth/`,
+    obtainAuthTokenUrl: `${apiUrl}/api-token-auth/`,
   })
   return (
     <Admin
