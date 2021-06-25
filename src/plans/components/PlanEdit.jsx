@@ -1,10 +1,12 @@
 import {
   Edit,
-  TabbedForm,
-  Toolbar,
-  SaveButton,
   FormTab,
+  ReferenceInput,
+  SaveButton,
+  SelectInput,
+  TabbedForm,
   TextInput,
+  Toolbar,
 } from "react-admin"
 
 import Editor from "core/editor/Editor"
@@ -43,6 +45,14 @@ export default function PlanEdit(props) {
             multiline
             fullWidth
           />
+          <ReferenceInput
+            source="bible_fragment"
+            reference="bible-fragments"
+            label="Библейский отрывок"
+            sort={{ field: "start_verse", order: "ASC" }}
+          >
+            <SelectInput optionText="title" label="Библейский отрывок" />
+          </ReferenceInput>
         </FormTab>
         <FormTab label="Текст">
           <Editor onChange={setTextFieldValue} onReady={setTextFieldValue} />

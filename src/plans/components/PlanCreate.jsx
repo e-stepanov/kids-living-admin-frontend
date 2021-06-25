@@ -1,10 +1,13 @@
 import {
   Create,
-  TabbedForm,
-  Toolbar,
-  SaveButton,
   FormTab,
+  ReferenceInput,
+  required,
+  SaveButton,
+  SelectInput,
+  TabbedForm,
   TextInput,
+  Toolbar,
 } from "react-admin"
 
 import Editor from "core/editor/Editor"
@@ -12,10 +15,6 @@ import { useState } from "react"
 
 export default function PlanEdit(props) {
   const [textFieldValue, setTextFieldValue] = useState("")
-
-  const onChange = (value) => {
-    setTextFieldValue(value)
-  }
 
   const transform = (data) => {
     return {
@@ -40,16 +39,30 @@ export default function PlanEdit(props) {
     <Create {...props}>
       <TabbedForm toolbar={<PlanCreateToolbar />}>
         <FormTab label="Общее">
-          <TextInput source="title" label="Название" fullWidth />
+          <TextInput
+            source="title"
+            label="Название"
+            fullWidth
+            validate={required()}
+          />
           <TextInput
             source="description"
             label="Описание"
             multiline
             fullWidth
+            validate={required()}
           />
+          <ReferenceInput
+            source="bible_fragment"
+            reference="bible-fragments"
+            label="Библейский отрывок"
+            sort={{ field: "start_verse", order: "ASC" }}
+          >
+            <SelectInput optionText="title" label="Библейский отрывок" />
+          </ReferenceInput>
         </FormTab>
         <FormTab label="Текст">
-          <Editor onChange={onChange} />
+          <Editor onChange={setTextFieldValue} onReady={setTextFieldValue} />
         </FormTab>
       </TabbedForm>
     </Create>
