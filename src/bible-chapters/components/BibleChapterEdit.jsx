@@ -6,7 +6,6 @@ import {
   SimpleForm,
   required,
 } from "react-admin"
-import "react-quill/dist/quill.snow.css"
 
 export default function BibleChapterEdit(props) {
   return (
