@@ -10,6 +10,11 @@ export default function Menu() {
         leftIcon={<LocalLibrary />}
       />
       <MenuItemLink
+        to={"/bible-fragments"}
+        primaryText="Библейские отрывки"
+        leftIcon={<LocalLibrary />}
+      />
+      <MenuItemLink
         to={"/plans"}
         primaryText="Планы"
         leftIcon={<LibraryBooks />}

@@ -9,6 +9,7 @@ import bibleChaptersCRUD from "bible-chapters/components"
 import bibleVerseCRUDD from "bible-verses/components"
 import Layout from "layout/Layout"
 import planCRUD from "plans/components"
+import bibleFragmentsLCRUD from "bible-fragments"
 
 function App() {
   const dataProvider = drfProvider("/api/v1", fetchJsonWithAuthToken)
@@ -34,6 +35,11 @@ function App() {
         name="bible-verses"
         options={{ label: "Стихи Библии" }}
         {...bibleVerseCRUDD}
+      />
+      <Resource
+        name="bible-fragments"
+        options={{ label: "Библейские отрывки" }}
+        {...bibleFragmentsLCRUD}
       />
       <Resource
         name="plans"
