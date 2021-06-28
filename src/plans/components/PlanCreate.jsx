@@ -1,9 +1,11 @@
 import {
   Create,
   FormTab,
+  ReferenceArrayInput,
   ReferenceInput,
   required,
   SaveButton,
+  SelectArrayInput,
   SelectInput,
   TabbedForm,
   TextInput,
@@ -60,6 +62,14 @@ export default function PlanEdit(props) {
           >
             <SelectInput optionText="title" label="Библейский отрывок" />
           </ReferenceInput>
+          <ReferenceArrayInput
+            source="themes"
+            reference="plan-themes"
+            label="Темы планов"
+            sort={{ field: "name", order: "ASC" }}
+          >
+            <SelectArrayInput optionText="name" />
+          </ReferenceArrayInput>
         </FormTab>
         <FormTab label="Текст">
           <Editor onChange={setTextFieldValue} onReady={setTextFieldValue} />

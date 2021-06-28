@@ -1,4 +1,12 @@
-import { ReferenceField, Show, SimpleShowLayout, TextField } from "react-admin"
+import {
+  ChipField,
+  ReferenceField,
+  ReferenceManyField,
+  Show,
+  SimpleShowLayout,
+  SingleFieldList,
+  TextField,
+} from "react-admin"
 
 export default function PlanShow(props) {
   return (
@@ -13,6 +21,11 @@ export default function PlanShow(props) {
         >
           <TextField source="title" />
         </ReferenceField>
+        <ReferenceManyField label="Темы" reference="plan-themes" target="plan">
+          <SingleFieldList>
+            <ChipField source="name" />
+          </SingleFieldList>
+        </ReferenceManyField>
       </SimpleShowLayout>
     </Show>
   )

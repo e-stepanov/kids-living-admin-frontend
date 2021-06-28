@@ -11,6 +11,7 @@ import bibleVerseCRUDD from "bible-verses/components"
 import apiUrl from "core/apiUrl"
 import Layout from "layout/Layout"
 import planCRUD from "plans/components"
+import planThemeCRUD from "plan-themes/components"
 
 function App() {
   const dataProvider = drfProvider(apiUrl, fetchJsonWithAuthToken)
@@ -43,6 +44,11 @@ function App() {
         name="bible-fragments"
         options={{ label: "Библейские отрывки" }}
         {...bibleFragmentsLCRUD}
+      />
+      <Resource
+        name="plan-themes"
+        options={{ label: "Темы" }}
+        {...planThemeCRUD}
       />
       <Resource
         name="plans"

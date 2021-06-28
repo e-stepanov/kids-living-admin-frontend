@@ -1,4 +1,9 @@
-import { LibraryBooks, LocalLibrary } from "@material-ui/icons"
+import {
+  LibraryBooks,
+  LocalLibrary,
+  LocalOffer,
+  MenuBook,
+} from "@material-ui/icons"
 import { MenuItemLink } from "react-admin"
 
 export default function Menu() {
@@ -12,7 +17,12 @@ export default function Menu() {
       <MenuItemLink
         to={"/bible-fragments"}
         primaryText="Библейские отрывки"
-        leftIcon={<LocalLibrary />}
+        leftIcon={<MenuBook />}
+      />
+      <MenuItemLink
+        to={"/plan-themes"}
+        primaryText="Темы"
+        leftIcon={<LocalOffer />}
       />
       <MenuItemLink
         to={"/plans"}
