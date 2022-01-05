@@ -137,13 +137,13 @@ function MenuBar({ editor }) {
   )
 }
 
-export default function TipTap(record) {
+export default function TipTap({ record, onChange }) {
   const classes = useStyles()
   const editor = useEditor({
     extensions: [StarterKit],
     content: {
       type: "doc",
-      content: record.text || [
+      content: JSON.parse(record.text).content || [
         {
           type: "paragraph",
           content: [
@@ -155,6 +155,7 @@ export default function TipTap(record) {
         },
       ],
     },
+    onUpdate: onChange,
   })
 
   return (
@@ -168,5 +169,6 @@ export default function TipTap(record) {
 TipTap.propTypes = {
   record: PropTypes.shape({
     text: PropTypes.string,
-  }).isRequired,
+  }),
+  onChange: PropTypes.func.isRequired,
 }

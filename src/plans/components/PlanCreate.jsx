@@ -12,7 +12,7 @@ import {
   Toolbar,
 } from "react-admin"
 
-import Editor from "core/editor/Editor"
+import Editor from "core/tiptap/TipTap"
 import { useState } from "react"
 
 export default function PlanEdit(props) {
@@ -23,6 +23,10 @@ export default function PlanEdit(props) {
       ...data,
       text: JSON.stringify(textFieldValue),
     }
+  }
+
+  const onEditorChange = ({ editor }) => {
+    setTextFieldValue(editor.getJSON())
   }
 
   // for some unclear reasons transform function passed to
@@ -67,12 +71,13 @@ export default function PlanEdit(props) {
             reference="plan-themes"
             label="Темы планов"
             sort={{ field: "name", order: "ASC" }}
+            validate={required()}
           >
             <SelectArrayInput optionText="name" />
           </ReferenceArrayInput>
         </FormTab>
         <FormTab label="Текст">
-          <Editor onChange={setTextFieldValue} onReady={setTextFieldValue} />
+          <Editor onChange={onEditorChange} />
         </FormTab>
       </TabbedForm>
     </Create>

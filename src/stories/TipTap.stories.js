@@ -10,4 +10,5 @@ const Template = (args) => <TipTap {...args} />
 export const EmptyContent = Template.bind({})
 EmptyContent.args = {
   record: {},
+  onChange: () => {},
 }
