@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
   Create,
   FormTab,
@@ -11,11 +12,19 @@ import {
   TextInput,
   Toolbar,
 } from "react-admin"
+import { makeStyles } from "@material-ui/styles"
 
 import Editor from "core/tiptap/TipTap"
-import { useState } from "react"
+
+const useStyles = makeStyles({
+  editor: {
+    maxHeight: "80vh",
+    overflow: "scroll",
+  },
+})
 
 export default function PlanEdit(props) {
+  const classes = useStyles()
   const [textFieldValue, setTextFieldValue] = useState("")
 
   const transform = (data) => {
@@ -77,7 +86,7 @@ export default function PlanEdit(props) {
           </ReferenceArrayInput>
         </FormTab>
         <FormTab label="Текст">
-          <Editor onChange={onEditorChange} />
+          <Editor onChange={onEditorChange} styles={classes.editor} />
         </FormTab>
       </TabbedForm>
     </Create>

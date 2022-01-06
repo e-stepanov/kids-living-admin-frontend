@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@tiptap/react": "^2.0.0-beta.101",
     "@tiptap/starter-kit": "^2.0.0-beta.163",
+    "classnames": "^2.3.1",
     "prop-types": "^15.7.2",
     "query-string": "^7.0.0",
     "ra-data-django-rest-framework": "^0.1.6",

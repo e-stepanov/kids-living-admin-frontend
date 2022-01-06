@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 
+import classnames from "classnames"
 import { makeStyles } from "@material-ui/core"
 import { useEditor, EditorContent } from "@tiptap/react"
 import StarterKit from "@tiptap/starter-kit"
@@ -137,7 +138,7 @@ function MenuBar({ editor }) {
   )
 }
 
-export default function TipTap({ record, onChange }) {
+export default function TipTap({ record, onChange, styles }) {
   const classes = useStyles()
   const editor = useEditor({
     extensions: [StarterKit],
@@ -159,7 +160,7 @@ export default function TipTap({ record, onChange }) {
   })
 
   return (
-    <div className={classes.root}>
+    <div className={classnames(classes.root, styles)}>
       <MenuBar editor={editor} />
       <EditorContent editor={editor} className={classes.editor} />
     </div>
@@ -171,4 +172,5 @@ TipTap.propTypes = {
     text: PropTypes.string,
   }),
   onChange: PropTypes.func.isRequired,
+  className: PropTypes.string,
 }
