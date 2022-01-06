@@ -144,17 +144,19 @@ export default function TipTap({ record, onChange, styles }) {
     extensions: [StarterKit],
     content: {
       type: "doc",
-      content: JSON.parse(record.text).content || [
-        {
-          type: "paragraph",
-          content: [
+      content: record.text
+        ? JSON.parse(record.text).content
+        : [
             {
-              type: "text",
-              text: "",
+              type: "paragraph",
+              content: [
+                {
+                  type: "text",
+                  text: " ",
+                },
+              ],
             },
           ],
-        },
-      ],
     },
     onUpdate: onChange,
   })
