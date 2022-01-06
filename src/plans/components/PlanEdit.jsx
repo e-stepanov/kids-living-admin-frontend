@@ -28,10 +28,12 @@ export default function PlanEdit(props) {
   const [textFieldValue, setTextFieldValue] = useState({})
 
   const transform = (data) => {
-    return {
-      ...data,
-      text: JSON.stringify(textFieldValue),
-    }
+    return Object.keys(textFieldValue).length > 0
+      ? {
+          ...data,
+          text: JSON.stringify(textFieldValue),
+        }
+      : data
   }
 
   const onEditorChange = ({ editor }) => {
