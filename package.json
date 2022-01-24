@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@tiptap/extension-image": "^2.0.0-beta.24",
     "@tiptap/react": "^2.0.0-beta.101",
     "@tiptap/starter-kit": "^2.0.0-beta.163",
     "classnames": "^2.3.1",

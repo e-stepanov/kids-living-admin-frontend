@@ -1,8 +1,10 @@
 import PropTypes from "prop-types"
 
+import { useCallback } from "react"
 import classnames from "classnames"
 import { makeStyles } from "@material-ui/core"
 import { useEditor, EditorContent } from "@tiptap/react"
+import Image from "@tiptap/extension-image"
 import StarterKit from "@tiptap/starter-kit"
 import BoldIcon from "remixicon-react/BoldIcon"
 import ListUnorderedIcon from "remixicon-react/ListUnorderedIcon"
@@ -15,6 +17,7 @@ import H3Icon from "remixicon-react/H3Icon"
 import StrikethroughIcon from "remixicon-react/StrikethroughIcon"
 import ArrowGoBackLineIcon from "remixicon-react/ArrowGoBackLineIcon"
 import ArrowGoForwardIcon from "remixicon-react/ArrowGoForwardLineIcon"
+import ImageLineIcon from "remixicon-react/ImageLineIcon"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,6 +61,15 @@ const useStyles = makeStyles((theme) => ({
 
 function MenuBar({ editor }) {
   const classes = useStyles()
+
+  const addImage = useCallback(() => {
+    const url = window.prompt("URL")
+
+    if (url) {
+      editor.chain().focus().setImage({ src: url }).run()
+    }
+  }, [editor])
+
   if (!editor) {
     return null
   }
@@ -134,6 +146,7 @@ function MenuBar({ editor }) {
         onClick={() => editor.chain().focus().redo().run()}
         className={classes.button}
       />
+      <ImageLineIcon onClick={addImage} className={classes.button} />
     </div>
   )
 }
@@ -141,7 +154,7 @@ function MenuBar({ editor }) {
 export default function TipTap({ record, onChange, styles }) {
   const classes = useStyles()
   const editor = useEditor({
-    extensions: [StarterKit],
+    extensions: [StarterKit, Image],
     content: {
       type: "doc",
       content: record.text
