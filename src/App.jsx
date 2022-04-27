@@ -4,14 +4,14 @@ import drfProvider, {
   fetchJsonWithAuthToken,
 } from "ra-data-django-rest-framework"
 
-import bibleBooksCRUD from "bible-books/components"
-import bibleChaptersCRUD from "bible-chapters/components"
-import bibleFragmentsLCRUD from "bible-fragments"
-import bibleVerseCRUDD from "bible-verses/components"
+import bibleBooksResource from "bible/books"
+import bibleChaptersResource from "bible/chapters"
+import bibleFragmentsResource from "bible/fragments"
+import bibleVersesResource from "bible/verses"
 import apiUrl from "core/apiUrl"
 import Layout from "layout/Layout"
-import planCRUD from "plans/components"
-import planThemeCRUD from "plan-themes/components"
+import planThemesResource from "plans/themes"
+import plansResource from "plans/plans"
 
 function App() {
   const dataProvider = drfProvider(apiUrl, fetchJsonWithAuthToken)
@@ -20,40 +20,40 @@ function App() {
   })
   return (
     <Admin
-      title=""
+      title="Kids living blog"
       dataProvider={dataProvider}
       authProvider={authProvider}
-      layout={Layout}
+    layout={Layout}
     >
       <Resource
         name="bible-books"
         options={{ label: "Книги Библии" }}
-        {...bibleBooksCRUD}
+        {...bibleBooksResource}
       />
       <Resource
         name="bible-chapters"
         options={{ label: "Главы Библии" }}
-        {...bibleChaptersCRUD}
+        {...bibleChaptersResource}
       />
       <Resource
         name="bible-verses"
         options={{ label: "Стихи Библии" }}
-        {...bibleVerseCRUDD}
+        {...bibleVersesResource}
       />
       <Resource
         name="bible-fragments"
         options={{ label: "Библейские отрывки" }}
-        {...bibleFragmentsLCRUD}
+        {...bibleFragmentsResource}
       />
       <Resource
         name="plan-themes"
         options={{ label: "Темы" }}
-        {...planThemeCRUD}
+        {...planThemesResource}
       />
       <Resource
         name="plans"
         options={{ label: "Планы собраний" }}
-        {...planCRUD}
+        {...plansResource}
       />
     </Admin>
   )
