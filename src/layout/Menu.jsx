@@ -3,7 +3,7 @@ import {
   LocalLibrary,
   LocalOffer,
   MenuBook,
-} from "@material-ui/icons"
+} from "@mui/icons-material"
 import { MenuItemLink } from "react-admin"
 
 export default function Menu() {
